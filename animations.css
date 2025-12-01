@@ -1,0 +1,256 @@
+/* Animations and transitions */
+
+/* Gradient shift for rainbow theme */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce animation for birthday card */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Pulse animation for special elements */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Shake animation */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Rotate animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Float animation for balloons and particles */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
+}
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    5% {
+        transform: scale(1.1);
+    }
+    10% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.2);
+    }
+    20%, 100% {
+        transform: scale(1);
+    }
+}
+
+/* Slide in down animation for notifications */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Slide out up animation for notifications */
+@keyframes slideOutUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+/* Apply animations to elements */
+.animate__fadeIn {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.animate__bounceIn {
+    animation: bounceIn 1s ease forwards;
+}
+
+.animate__pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate__shake {
+    animation: shake 0.5s ease;
+}
+
+.animate__rotate {
+    animation: rotate 2s linear infinite;
+}
+
+.animate__float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate__heartbeat {
+    animation: heartbeat 1.5s ease infinite;
+}
+
+/* Special animation for birthday card */
+.birthday-card {
+    animation: bounceIn 1s ease;
+}
+
+/* Animation for age display */
+.age-display {
+    animation: pulse 2s infinite;
+}
+
+/* Animation for buttons on hover */
+.btn-primary:hover, .btn-secondary:hover, .btn-outline:hover {
+    animation: pulse 0.5s;
+}
+
+/* Animation for cake icon */
+.fa-birthday-cake {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animation for heart icon in footer */
+.fa-heart {
+    animation: heartbeat 1.5s ease infinite;
+    display: inline-block;
+}
+
+/* Animation for form inputs when focused */
+input:focus, select:focus, textarea:focus {
+    animation: pulse 0.5s;
+}
+
+/* Animation for surprise buttons when clicked */
+.btn-secondary:active {
+    animation: shake 0.3s;
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: rotate 1s ease-in-out infinite;
+}
+
+/* Animation for notification */
+.notification {
+    animation: slideInDown 0.5s ease forwards;
+}
+
+.notification.animate__fadeOutUp {
+    animation: slideOutUp 0.5s ease forwards;
+}
+
+/* Special effect for theme change */
+.theme-change {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animation for secret messages */
+.message {
+    animation: fadeIn 0.8s ease;
+    animation-fill-mode: both;
+}
+
+.message:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.message:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.message:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.message:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+/* Media query for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
