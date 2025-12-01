@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Ulang Tahun Interaktif</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Panel Kustomisasi -->
+        <div class="customization-panel active">
+            <div class="panel-header">
+                <h1><i class="fas fa-birthday-cake"></i> Buat Ucapan Ulang Tahun</h1>
+                <p>Personalisasi ucapan ulang tahun dengan detail spesial</p>
+            </div>
+            
+            <div class="form-container">
+                <div class="input-group">
+                    <label for="name"><i class="fas fa-user"></i> Nama yang berulang tahun</label>
+                    <input type="text" id="name" placeholder="Masukkan nama" value="Sahabat">
+                </div>
+                
+                <div class="input-group">
+                    <label for="birthdate"><i class="fas fa-calendar-alt"></i> Tanggal Ulang Tahun</label>
+                    <div class="date-inputs">
+                        <select id="day">
+                            <option value="">Hari</option>
+                            <!-- Hari akan diisi oleh JavaScript -->
+                        </select>
+                        <select id="month">
+                            <option value="">Bulan</option>
+                            <option value="1">Januari</option>
+                            <option value="2">Februari</option>
+                            <option value="3">Maret</option>
+                            <option value="4">April</option>
+                            <option value="5">Mei</option>
+                            <option value="6">Juni</option>
+                            <option value="7">Juli</option>
+                            <option value="8">Agustus</option>
+                            <option value="9">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Desember</option>
+                        </select>
+                        <select id="year">
+                            <option value="">Tahun</option>
+                            <!-- Tahun akan diisi oleh JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="theme"><i class="fas fa-palette"></i> Tema Ucapan</label>
+                    <div class="theme-options">
+                        <div class="theme-option" data-theme="default">
+                            <div class="theme-preview default-theme"></div>
+                            <span>Klasik</span>
+                        </div>
+                        <div class="theme-option" data-theme="galaxy">
+                            <div class="theme-preview galaxy-theme"></div>
+                            <span>Galaksi</span>
+                        </div>
+                        <div class="theme-option" data-theme="floral">
+                            <div class="theme-preview floral-theme"></div>
+                            <span>Bunga</span>
+                        </div>
+                        <div class="theme-option" data-theme="party">
+                            <div class="theme-preview party-theme"></div>
+                            <span>Pesta</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="message"><i class="fas fa-quote-left"></i> Pesan Tambahan</label>
+                    <textarea id="message" rows="3" placeholder="Tulis pesan khusus di sini...">Semoga hari spesialmu dipenuhi kebahagiaan, cinta, dan banyak kejutan menyenangkan!</textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label><i class="fas fa-gift"></i> Efek Kejutan</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="confetti" checked> Konfeti</label>
+                        <label><input type="checkbox" id="balloons" checked> Balon</label>
+                        <label><input type="checkbox" id="sparkles" checked> Kilau</label>
+                        <label><input type="checkbox" id="music" checked> Musik</label>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="previewBtn" class="btn preview-btn">
+                        <i class="fas fa-eye"></i> Lihat Pratinjau
+                    </button>
+                    <button id="generateBtn" class="btn generate-btn">
+                        <i class="fas fa-magic"></i> Buat Ucapan
+                    </button>
+                </div>
+            </div>
+            
+            <div class="hint">
+                <i class="fas fa-lightbulb"></i> Setelah mengisi data, klik "Buat Ucapan" untuk melihat kejutan spesial!
+            </div>
+        </div>
+        
+        <!-- Kartu Ucapan -->
+        <div class="birthday-card">
+            <div class="card-inner">
+                <!-- Depan Kartu -->
+                <div class="card-front">
+                    <div class="front-content">
+                        <div class="cake-container">
+                            <div class="cake">
+                                <div class="layer bottom"></div>
+                                <div class="layer middle"></div>
+                                <div class="layer top"></div>
+                                <div class="candle"></div>
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+                        <h2 class="front-title">Sebentar Lagi...</h2>
+                        <p class="front-subtitle">Klik untuk membuka kejutan!</p>
+                        <div class="instruction">
+                            <i class="fas fa-hand-point-up"></i> Klik kartu ini untuk membuka
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dalam Kartu -->
+                <div class="card-inside">
+                    <div class="inside-header">
+                        <h1 class="birthday-title">Selamat Ulang Tahun!</h1>
+                        <div class="birthday-person">
+                            <i class="fas fa-star"></i>
+                            <span id="displayName">Sahabat</span>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="inside-content">
+                        <div class="age-container">
+                            <div class="age-box">
+                                <span class="age-label">Usia Ke</span>
+                                <span id="displayAge" class="age-number">0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="message-container">
+                            <p id="displayMessage">Semoga hari spesialmu dipenuhi kebahagiaan, cinta, dan banyak kejutan menyenangkan!</p>
+                            <div class="birthday-date">
+                                <i class="fas fa-calendar-check"></i>
+                                <span id="displayDate">1 Januari 2000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="wishes">
+                            <div class="wish"><i class="fas fa-heart"></i> Bahagia Selalu</div>
+                            <div class="wish"><i class="fas fa-smile"></i> Sehat Sentosa</div>
+                            <div class="wish"><i class="fas fa-star"></i> Sukses Dunia Akhirat</div>
+                            <div class="wish"><i class="fas fa-gem"></i> Rezeki Melimpah</div>
+                        </div>
+                    </div>
+                    
+                    <div class="inside-footer">
+                        <p>Dengan penuh kasih sayang,</p>
+                        <p class="signature">Dari pembuat ucapan ini ❤️</p>
+                        <button id="backToEdit" class="btn edit-btn">
+                            <i class="fas fa-edit"></i> Ubah Ucapan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pengaturan Musik -->
+        <div class="music-controls">
+            <button id="musicToggle" class="music-btn">
+                <i class="fas fa-music"></i>
+            </button>
+            <button id="soundToggle" class="sound-btn">
+                <i class="fas fa-volume-up"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Canvas untuk efek partikel -->
+    <canvas id="confettiCanvas"></canvas>
+    <canvas id="sparkleCanvas"></canvas>
+    
+    <!-- Audio untuk musik -->
+    <audio id="birthdayMusic" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
